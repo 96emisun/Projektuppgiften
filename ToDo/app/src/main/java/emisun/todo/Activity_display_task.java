@@ -1,8 +1,6 @@
 package emisun.todo;
 
-import android.annotation.TargetApi;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -12,6 +10,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+/**
+ * @author Emil Sundqvist
+ */
+
+/*
+    This class displays the "Display Task" activity where a selected task is displayed.
+ */
 
 public class Activity_display_task extends ActionBarActivity {
 
@@ -24,8 +29,6 @@ public class Activity_display_task extends ActionBarActivity {
     String filename;
 
     int nbrItems;
-
-    MainActivity activity;
     Model model;
 
     @Override
@@ -39,6 +42,7 @@ public class Activity_display_task extends ActionBarActivity {
         TextView txvHeadline = (TextView) findViewById(R.id.txvHeadline);
         TextView txvText = (TextView) findViewById(R.id.txvText);
 
+        // Receives the intent from MainActivity.
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             headline = extras.getString("headline");
@@ -63,29 +67,35 @@ public class Activity_display_task extends ActionBarActivity {
         return true;
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
         if (id == R.id.action_delete){
+            // Deletes the file containing the data, then sends the user to MainActivity.
             model.deleteAll(getApplicationContext());
 
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
 
-            return true;
-
         } else if (id == R.id.action_about){
+            // Sends the user to Activity_about.
             Intent intent = new Intent(this, Activity_about.class);
             startActivity(intent);
+
         } else if(id == R.id.notification){
+            // Displays a notification.
             model.sendNotification(getApplicationContext());
+
         }
 
         return super.onOptionsItemSelected(item);
     }
 
+    /*
+        Deletes the task that is currently being shown in Activity_display_task,
+        then sends the user to MainActivity.
+     */
     public void deleteTask (View view){
         model.deleteTask(getApplicationContext(), nbrItems, headlines, headline, texts, times);
         Intent intent = new Intent(this, MainActivity.class);

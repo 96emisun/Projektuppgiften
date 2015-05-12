@@ -22,7 +22,11 @@ import java.util.Date;
 import java.util.Scanner;
 
 /**
- * Created by Emil on 2015-05-11.
+ * @author Emil Sundqvist
+ */
+
+/*
+    This class is the model class. It contains methods used in the other classes.
  */
 public class Model {
 
@@ -36,12 +40,14 @@ public class Model {
         this.filename = MainActivity.filename;
     }
 
+    // Deletes the file containing the data.
     public void deleteAll(Context context){
         File dir = context.getFilesDir();
         File file = new File(dir, filename);
         file.delete();
     }
 
+    // Reads and parses the data from the file. Then displays it in the ListView.
     public void readCSV (ArrayAdapter<String> adapter, ArrayList<String> headlines, ArrayList<String> texts, ArrayList<String> times) {
         FileInputStream in = null;
         String temp;
@@ -59,6 +65,7 @@ public class Model {
 
             adapter.clear();
 
+            // Adds the tasks to the ListView.
             while(scan.hasNext()){
                 temp = scan.next();
                 a = temp.split(";");
@@ -85,11 +92,13 @@ public class Model {
         }
     }
 
+    // Adds items to the ListView.
     public void addItem(String headline, ArrayList<String> listItems, ArrayAdapter<String> adapter){
         listItems.add(headline);
         adapter.notifyDataSetChanged();
     }
 
+    // Saves a new task.
     public void saveCSV(Context context, String entry){
         try {
 
@@ -103,6 +112,7 @@ public class Model {
         }
     }
 
+    // Creates a notification and sends it to the user.
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void sendNotification(Context context){
 
@@ -123,26 +133,28 @@ public class Model {
 
     }
 
+    // Deletes the task specified by the user.
     public void deleteTask(Context context,
                            int nbrItems, ArrayList<String> headlines, String headline,
                            ArrayList<String> texts, ArrayList<String> times){
 
-        if(nbrItems != 1) {
-            for (int i = 0; i < headlines.size(); i++) {
-                if (headline.equals(headlines.get(i))) {
+        // Removes the selected task from the ArrayLists containing all the information.
+        for (int i = 0; i < headlines.size(); i++) {
+            if (headline.equals(headlines.get(i))) {
 
-                    headlines.remove(i);
-                    texts.remove(i);
-                    times.remove(i);
+                headlines.remove(i);
+                texts.remove(i);
+                times.remove(i);
 
-                }
             }
-            try {
+        }
+        try {
 
-                File dir = context.getFilesDir();
-                File file = new File(dir, filename);
-                file.delete();
+            // The whole file is deleted, then the new information is written to it.
+            deleteAll(context);
 
+            // The new data only needs to be written if the deleted item wasn't the las one.
+            if(nbrItems != 1) {
                 FileOutputStream out = context.openFileOutput(filename, Context.MODE_APPEND);
                 for (int i = 0; i < headlines.size(); i++) {
                     String entry = headlines.get(i) + ";" + texts.get(i) + ";" + times.get(i) + "\n";
@@ -151,19 +163,14 @@ public class Model {
 
                 out.close();
                 Toast.makeText(context, "Removed successfully", Toast.LENGTH_LONG).show();
-
-                Intent intent = new Intent(context, MainActivity.class);
-                context.startActivity(intent);
-
-            } catch (Exception e) {
-                e.printStackTrace();
             }
 
-        } else {
-            deleteAll(context);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
+    // Returns the system's current date and time in the selected format.
     public String getCurrentDateTime(String format){
         Format formatter = new SimpleDateFormat(format);
         String time = formatter.format(new Date());

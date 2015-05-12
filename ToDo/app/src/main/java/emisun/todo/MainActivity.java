@@ -11,7 +11,13 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+/**
+ * @author Emil Sundqvist
+ */
 
+/*
+    This class displays the "MainActivity" activity where all the tasks are displayed.
+ */
 public class MainActivity extends ListActivity {
 
     private ArrayList<String> listItems;
@@ -40,11 +46,16 @@ public class MainActivity extends ListActivity {
 
         model = new Model(getApplicationContext(), listItems);
 
+        // Creates the adapter that controls the ListView.
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listItems);
         setListAdapter(adapter);
 
         listView = (ListView) findViewById(android.R.id.list);
 
+        /*
+            When an item in the list is clicked, the user is sent to Activity_display_task where
+            the selected item is shown.
+         */
         OnItemClickListener onItemClickListener = new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -72,11 +83,13 @@ public class MainActivity extends ListActivity {
 
     }
 
+    // Sends the user to Activity_add_task.
     public void screenAdd (View view) {
         Intent intent = new Intent(this, Activity_add_task.class);
         startActivity(intent);
     }
 
+    // Deletes the file containing the data.
     public void deleteAll(View view){
         model.deleteAll(getApplicationContext());
 
@@ -84,10 +97,12 @@ public class MainActivity extends ListActivity {
         startActivity(intent);
     }
 
+    // Displays a notification.
     public void notification(View view){
         model.sendNotification(getApplicationContext());
     }
 
+    // Sends the user to Activity_about.
     public void screenAbout(View view){
         Intent intent = new Intent(this, Activity_about.class);
         startActivity(intent);

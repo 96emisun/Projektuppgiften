@@ -9,6 +9,7 @@
     tools:context="emisun.todo.Activity_add_task"
     >
 
+    <!-- The header of the task -->
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -16,6 +17,7 @@
         android:hint="Name of the To-Do"
         android:textSize="80px"/>
 
+    <!-- A frame containing the description of the task -->
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -26,6 +28,7 @@
         android:id="@+id/framelayout"
         android:layout_above="@+id/btnDelete">
 
+        <!-- The description of the task -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="322dp"
@@ -41,6 +44,7 @@
 
     </FrameLayout>
 
+    <!-- The button that deletes the task -->
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

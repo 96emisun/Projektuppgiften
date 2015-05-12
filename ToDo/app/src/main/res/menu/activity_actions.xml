@@ -2,14 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- The menu item that deletes all tasks -->
     <item android:id="@+id/action_delete"
         android:title="@string/action_delete"
         app:showAsAction="never" />
 
+    <!-- The menu item that starts Activity_about -->
     <item android:id="@+id/action_about"
         android:title="@string/about_title"
         app:showAsAction="never" />
 
+    <!-- The menu item that displays a notification -->
     <item android:id="@+id/notification"
         android:title="Notification"
         app:showAsAction="never" />

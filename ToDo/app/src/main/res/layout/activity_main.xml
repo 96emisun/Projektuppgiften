@@ -5,6 +5,7 @@
     android:layout_height="fill_parent"
     android:weightSum="1">
 
+    <!-- The button that starts Activity_add_task -->
     <Button
         android:id="@+id/addBtn"
         android:text="Add New Task"
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:onClick="screenAdd"/>
 
+    <!-- The button that deletes all tasks -->
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -20,6 +22,7 @@
         android:layout_gravity="center_horizontal"
         android:onClick="deleteAll"/>
 
+    <!-- The button that starts Activity_about -->
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -28,6 +31,7 @@
         android:layout_gravity="center_horizontal"
         android:onClick="screenAbout"/>
 
+    <!-- The button that displays a notification -->
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -36,6 +40,7 @@
         android:layout_gravity="center_horizontal"
         android:onClick="notification"/>
 
+    <!-- The ListView that displays all the saved tasks -->
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"

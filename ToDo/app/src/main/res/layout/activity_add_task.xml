@@ -9,12 +9,14 @@
     tools:context="emisun.todo.Activity_add_task"
     >
 
+    <!-- The header for the task -->
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/edtHeadline"
         android:hint="Name of the To-Do"/>
 
+    <!-- The button that saves the task -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,6 +29,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <!-- A frame containing the EditText for the description -->
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -36,6 +39,7 @@
         android:layout_above="@id/button"
         android:background="@drawable/border">
 
+        <!-- The description for the task -->
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="322dp"
