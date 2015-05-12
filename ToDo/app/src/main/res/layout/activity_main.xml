@@ -2,7 +2,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:weightSum="1">
 
     <Button
         android:id="@+id/addBtn"
@@ -10,9 +11,35 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="screenAdd"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete All"
+        android:id="@+id/deleteBtn"
+        android:layout_gravity="center_horizontal"
+        android:onClick="deleteAll"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="About"
+        android:id="@+id/aboutBtn"
+        android:layout_gravity="center_horizontal"
+        android:onClick="about"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Notification"
+        android:id="@+id/notificationBtn"
+        android:layout_gravity="center_horizontal"
+        android:onClick="notification"/>
+
     <ListView
         android:id="@android:id/list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:drawSelectorOnTop="false" />
+        android:drawSelectorOnTop="false"/>
+
 </LinearLayout>
