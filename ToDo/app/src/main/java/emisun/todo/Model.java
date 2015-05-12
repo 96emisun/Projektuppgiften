@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -16,7 +15,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -160,6 +162,13 @@ public class Model {
         } else {
             deleteAll(context);
         }
+    }
+
+    public String getCurrentDateTime(String format){
+        Format formatter = new SimpleDateFormat(format);
+        String time = formatter.format(new Date());
+
+        return time;
     }
 
 }

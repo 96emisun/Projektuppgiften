@@ -1,7 +1,6 @@
 package emisun.todo;
 
 import android.app.ListActivity;
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.io.File;
 import java.util.ArrayList;
 
 
@@ -33,7 +31,7 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedItemStance);
         setContentView(R.layout.activity_main);
 
-        filename = "test.csv";
+        filename = "data.csv";
 
         headlines = new ArrayList<>();
         texts = new ArrayList<>();
@@ -90,7 +88,7 @@ public class MainActivity extends ListActivity {
         model.sendNotification(getApplicationContext());
     }
 
-    public void about(View view){
+    public void screenAbout(View view){
         Intent intent = new Intent(this, Activity_about.class);
         startActivity(intent);
     }
