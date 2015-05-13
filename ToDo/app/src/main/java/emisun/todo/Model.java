@@ -30,14 +30,14 @@ import java.util.Scanner;
  */
 public class Model {
 
-    Context context;
-    ArrayList<String> listItems;
-    String filename;
+    private Context context;
+    private ArrayList<String> listItems;
+    public static String filename;
 
     public Model(Context context, ArrayList<String> listItems){
         this.context = context;
         this.listItems = listItems;
-        this.filename = MainActivity.filename;
+        this.filename = "data.csv";
     }
 
     // Deletes the file containing the data.

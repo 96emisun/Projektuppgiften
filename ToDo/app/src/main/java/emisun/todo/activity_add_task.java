@@ -18,10 +18,9 @@ import android.widget.EditText;
 
 public class Activity_add_task extends ActionBarActivity {
 
-    EditText edtHeadline;
-    EditText edtText;
-    Model model;
-    String filename;
+    private EditText edtHeadline;
+    private EditText edtText;
+    private Model model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +30,6 @@ public class Activity_add_task extends ActionBarActivity {
         edtHeadline = (EditText) findViewById(R.id.edtHeadline);
         edtText = (EditText) findViewById(R.id.edtText);
         model = new Model(getApplicationContext(), null);
-        filename = MainActivity.filename;
     }
 
 

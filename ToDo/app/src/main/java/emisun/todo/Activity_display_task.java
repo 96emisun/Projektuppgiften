@@ -20,16 +20,16 @@ import java.util.ArrayList;
 
 public class Activity_display_task extends ActionBarActivity {
 
-    ArrayList<String> headlines;
-    ArrayList<String> texts;
-    ArrayList<String> times;
+    private ArrayList<String> headlines;
+    private ArrayList<String> texts;
+    private ArrayList<String> times;
 
-    String headline;
-    String text;
-    String filename;
+    private String headline;
+    private String text;
+    private String filename;
 
-    int nbrItems;
-    Model model;
+    private int nbrItems;
+    private Model model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class Activity_display_task extends ActionBarActivity {
         setContentView(R.layout.activity_display_task);
 
         model = new Model(getApplicationContext(), null);
-        filename = MainActivity.filename;
+        filename = Model.filename;
 
         TextView txvHeadline = (TextView) findViewById(R.id.txvHeadline);
         TextView txvText = (TextView) findViewById(R.id.txvText);

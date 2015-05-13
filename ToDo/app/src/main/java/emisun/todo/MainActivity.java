@@ -37,7 +37,7 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedItemStance);
         setContentView(R.layout.activity_main);
 
-        filename = "data.csv";
+        filename = Model.filename;
 
         headlines = new ArrayList<>();
         texts = new ArrayList<>();
